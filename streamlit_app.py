@@ -8,7 +8,7 @@ import time
 # --- 1. ตั้งค่าหน้าเว็บ ---
 st.set_page_config(page_title="TikTok Fact-Checker AI", page_icon="🩺")
 st.title("🩺 TikTok Fact-Checker AI")
-st.write("ระบบตรวจสอบข้อมูลสุขภาพด้วยพลัง AI (Gemini 2.0/1.5)")
+st.write("ระบบตรวจสอบข้อมูลสุขภาพด้วยพลัง AI (Gemini 2.5)")
 
 # --- 2. ดึงกุญแจ API (ใช้ชื่อ GEMINI_API_KEY ตามที่คุณตั้งไว้ในหน้า Secrets) ---
 try:
@@ -48,7 +48,7 @@ if st.button("🚀 เริ่มการตรวจสอบ"):
             try:
                 # แก้ไขชื่อ Category ให้มีคำว่า HARM_CATEGORY_ นำหน้า
                 response = client.models.generate_content(
-                    model='gemini-1.5-flash', 
+                    model='gemini-2.5-flash', 
                     contents=[prompt, uploaded_file],
                     config=types.GenerateContentConfig(
                         safety_settings=[
